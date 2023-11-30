@@ -1,0 +1,2 @@
+1. cors middleware -- communicate with port of frontend
+2. morgan -- tells which rest api is hit 
