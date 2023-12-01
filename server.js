@@ -44,7 +44,7 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:8080"
+                url: "https://online-job-portal-app.onrender.com" // url : default("http://localhost:8080")
             }
         ]
     },
