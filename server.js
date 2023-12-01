@@ -1,13 +1,20 @@
 //Creating the server
 
+//Libaries
 import express from 'express'
 import dotenv from 'dotenv' //for more security of private data
+import 'express-async-errors'
+
+//Middlewares
 import cors from 'cors'
 import morgan from 'morgan'
-import 'express-async-errors'
+
+//Files -- >{routes,config,middlewares}
 import connectDB from './config/db.js'
 import testRoute from './routes/testRoutes.js'
 import authRoutes from './routes/authRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import jobsRoute from './routes/jobsRoute.js'
 import errorMiddleware from './middlewares/errorMiddleware.js'
 
 
@@ -33,6 +40,8 @@ app.use(morgan("dev"))
 // })
 app.use('/api/v1/test',testRoute)
 app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/user', userRoutes)
+app.use('/api/v1/job', jobsRoute)
 
 //Validation Middleware custom
 app.use(errorMiddleware)
