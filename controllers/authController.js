@@ -57,7 +57,7 @@ export const loginController = async (req,res,next)=>{
 
   //Compare Password
   const isMatch = await user.comparePassword(password)
-  console.log(isMatch);
+  // console.log(isMatch);
   if(!isMatch){
     next('Wrong Password')
   }

@@ -2,7 +2,7 @@
 /* Until its condition is true next code doesn't execute */
 
 const errorMiddleware = (err,req,res,next) =>{
-    console.log("Error",err);
+    // console.log("Error",err);
     const defaultErrors = {
         statusCode: 500,
         message: err,
