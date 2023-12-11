@@ -12,7 +12,7 @@ const userAuth = async (req, res, next) => {
 //   console.log(token);
   try {
     const payLoad = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = {
+    req.body.user = {
       userId: payLoad.userId,
     };
     next();

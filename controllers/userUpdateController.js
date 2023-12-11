@@ -17,3 +17,31 @@ export const userUpdateController = async (req,res,next) => {
         token
     })
 }
+
+//GET USER CONTROLLER
+export const getUserDataController = async (req,res) => {
+    try {
+        const user = await userModel.findById({_id: req.body.user.userId})
+        console.log(user)
+        user.password = undefined
+        if(!user){
+            return res.status(200).send({
+                success: false,
+                message: "User not found",
+            })
+        }
+        else{
+            res.status(200).send({
+                success: true,
+                data: user,
+            })
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success:false,
+            message:"Auth Error",
+            error: error.message
+        })
+    }
+}
